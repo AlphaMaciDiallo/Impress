@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+  Invoice template by invoicebus.com
+  To customize this template consider following this guide https://invoicebus.com/how-to-create-invoice-template/
+  This template is under Invoicebus Template License, see https://invoicebus.com/templates/license/
+-->
+
+
+    <div id="container">
+      <section id="memo">
+        <div class="logo">
+          <img data-logo="company_logo" src="../../assets/diallo.jpg" />
+        </div>
+        
+        <div class="company-info">
+          <div>{{Company.name}}</div>
+
+          <br />
+          
+          <span>{{Company.adress}}</span>
+            <br />
+          <span>...</span>
+
+          <br />
+          
+          <span>{{Company.tel}}</span>
+            <br />
+          <span>{{Company.email}}</span>
+        </div>
+
+      </section>
+
+      <section id="invoice-title-number">
+          <br>  <br>  <br>  <br>  <br>  
+        <span id="title">Operation Sheet</span>
+        <span id="number">Operation {{operation.id}}</span>
+        
+      </section>
+       
+     
+      
+      <div class="clearfix"></div>
+      <br>  <br>  <br>
+      <section id="items">
+        
+        <table cellpadding="20px" cellspacing="0">
+          <tr>
+            <th></th>  <th>Category</th> <th> </th>  <th> </th> <th> {{operation.category}} </th>
+          </tr>
+          <tr data-iterate="item">
+            <th></th>  <th>Sub_Category</th>  <th> </th> <th> </th> <th>{{operation.sCategory}}  </th>              
+          </tr>
+          <tr>
+            <th></th>  <th>Received_by</th> <th> </th>  <th> </th> <th> {{operation.receivedBy}}  </th>
+          </tr>
+          <tr data-iterate="item">
+            <th></th>  <th>Date</th>  <th> </th> <th> </th> <th>{{operation.dataI}}  </th>              
+          </tr>
+          <tr>
+            <th></th>  <th>Issued_by</th> <th> </th>  <th> </th> <th> {{operation.IssuedBy}}  </th>
+          </tr>
+          <tr data-iterate="item">
+            <th></th>  <th>Category_Description</th>  <th> </th> <th> </th> <th>{{operation.description}}  </th>              
+          </tr>
+        
+        </table>
+        
+      </section>
+        <br>  <br>  <br>  <br>  <br>    <br>  <br>  <br>  <br>  <br>  
+      <section id="sums">
+      
+        <table cellpadding="0" cellspacing="0">
+          <tr>
+            <th></th>
+            <th></th>
+          </tr>
+          
+          <tr data-iterate="tax">
+            <th></th>
+            <th></th>
+           
+          </tr>
+          
+          <tr class="amount-total">
+            <th></th>
+            <th></th>
+          </tr>
+          
+          <!-- You can use attribute data-hide-on-quote="true" to hide specific information on quotes.
+               For example Invoicebus doesn't need amount paid and amount due on quotes  -->
+          <tr data-hide-on-quote="true">
+            <th></th>
+            <th></th>
+          </tr>
+          
+          <tr data-hide-on-quote="true">
+            <th> Total Amount</th>
+          </tr>
+          
+        </table>
+
+        <div class="clearfix"></div>
+        
+      </section>
+      
+      <div class="clearfix"></div>
+
+      <div class="thank-you">{{operation.cost}} GHS</div>
+
+      <div class="clearfix"></div>
+         <div class="form-group" style="float:right; margin-right: 20px;">                    
+            <input class="btn btn-primary" type="submit" name="facture" id="modifier" value="PrintOut" onclick="window.print()" />
+        </div>
+    </div>
+
+    <script src="http://cdn.invoicebus.com/generator/generator.min.js?data=data.js"></script>
+  

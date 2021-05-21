@@ -1,0 +1,150 @@
+<section id="container">
+    <!--header start-->
+    <header class="header black-bg">
+        <div class="top-menu">
+            <li class="logoutclass">
+                    <a routerLink='../'>
+                        <i class="fa fa-desktop"></i>
+                        <span >LogOut</span>
+                    </a>       
+                </li>
+        </div>
+    </header>
+    <!--sidebar start-->
+  <aside>
+        <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+                <p class="centered"><a href="profile.html"><img src="../../assets/diallo.jpg" class="img-circle" width="80"></a></p>
+                <h5 class="centered" *ngIf="test">{{name1}}</h5>
+                <li class="mt">
+                    <a class="active" routerLink='../impressInput'>
+                        <i class="fa fa-dashboard"></i>
+                        <span >Accueil</span>
+                    </a>
+                </li>
+                
+                 
+                 <li class="sub-menu">
+                    <a routerLink='../operationInput'>
+                        <i class="fa fa-desktop"></i>
+                        <span > New Operation</span>
+                    </a>       
+                </li>
+                 <li class="sub-menu">
+                    <a routerLink='../operationoutPut'>
+                        <i class="fa fa-desktop"></i>
+                        <span>Operation List</span>
+                    </a>       
+                </li>
+                
+            </ul>
+        </div>
+    </aside>
+     <!--main content start-->
+    <section id="main-content">
+   <div>     
+	<div class="wrapper" style="background-image: url('../assets/bg-registration-form-2.jpg')">
+			<div class="inner" style="margin-left:30%;">
+				<form action="" name="form" [formGroup]="form">
+					<h3>Impress Management</h3>
+                    <div class="form-wrapper ">
+						<label for="">Amount</label>
+						<input type="number" class="form-control" id="amount1"  formControlName="amount" [ngClass]="{'is-invalid':form.get('amount')!.touched && form.get('amount')!.invalid}"/>
+                        <div class="invalid-feedback">
+                             Amount is required
+                        </div>
+                         
+					</div>
+					<div class="form-group">
+						<div class="form-wrapper">
+							<label for="">Start Date</label>
+							<input type="date" class="form-control" id="startDate1"  formControlName="startDate" [ngClass]="{'is-invalid':form.get('startDate')!.touched && form.get('startDate')!.invalid}">
+                             <div class="invalid-feedback">
+                                Start Date is required
+                            </div>
+						</div>
+						<div class="form-wrapper">
+							<label for="">End Date</label>
+							<input type="date" class="form-control" id="endDate1"  formControlName="endDate"  [ngClass]="{'is-invalid':form.get('endDate')!.touched && form.get('endDate')!.invalid}">
+                            <div class="invalid-feedback">
+                                Start Date is required
+                            </div>
+						</div>
+					</div>
+					
+					
+					<button [hidden]="impress" (click)="SaveImpress()" [disabled]="!form.valid">Save Impress</button>
+					<button [hidden]="!impress" (click)="EditImpressFunc()" [disabled]="!form.valid">Edit Impress</button>
+				</form>
+			</div>
+        <div style="margin-left:10%;">
+            <form action="">
+		           <table class="styled-table">
+                       <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Impress </th>
+                                <th>Start_Date</th>
+                                <th>End_____Date</th>
+                                <th>Issued_______by</th>
+                                <th>Action</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>  
+                        <tbody >                          
+                            <tr *ngFor = "let data of ImpressTable">
+                                <td>{{data.id}}</td>
+                                <td>{{data.amount}}</td>
+                                <td>{{data.startD}}</td>
+                                <td>{{data.endD}}</td>
+                                <td>{{data.userName}}</td>
+                                <td><button class="btn btn-outline-success" (click)="EditeImpress(data)"> EDIT</button></td>
+                                <td><button class="btn btn-danger" (click)="DeleteImpress(data)"> DELETE </button></td>                             
+                            </tr>
+                            <tr >
+                                <td colspan ="5" Style="color:green; align:right;">Total // Remainning</td>
+                                <td style="color:green">{{TotalImpress}}</td>  
+                                <td style="color:green">{{operationRem}}</td>  
+                            </tr>
+                        </tbody>            
+                    </table>
+				
+				</form>
+		</div>	
+		</div>
+				
+		
+</div>
+    </section>
+    <!--main content end-->
+
+    
+ 
+</section>
+  <!-- js placed at the end of the document so the pages load faster -->
+  <script src="../assets/lib/jquery/jquery.min.js"></script>
+
+  <script src="../assets/lib/bootstrap/js/bootstrap.min.js"></script>
+  <script class="include" type="text/javascript" src="../assets/lib/jquery.dcjqaccordion.2.7.js"></script>
+  <script src="../assets/lib/jquery.scrollTo.min.js"></script>
+  <script src="../assets/lib/jquery.nicescroll.js" type="text/javascript"></script>
+  <script src="../assets/lib/jquery.sparkline.js"></script>
+  <!--common script for all pages-->
+  <script src="../assets/lib/common-scripts.js"></script>
+  <script type="text/javascript" src="../assets/lib/gritter/js/jquery.gritter.js"></script>
+  <script type="text/javascript" src="../assets/lib/gritter-conf.js"></script>
+  <!--script for this page-->
+  <script src="../assets/lib/sparkline-chart.js"></script>
+  <script src="../assets/lib/zabuto_calendar.js"></script>
+  
+
+
+
+
+
+
+
+
+
+	
